@@ -77,7 +77,10 @@
     const voteCopy = relRect(document.querySelector('#vote .copy'));
     const dialogMedia = relRect(document.querySelector('#dialog .dialog-media'));
 
-    const topY = heroSection.top + 36;
+    const isMobile = window.innerWidth <= 700;
+    const topY = isMobile
+      ? Math.max(heroSection.top + 18, heroVideo.top - 36)
+      : heroSection.top + 36;
     const backLeftY = manifest.bottom - 42;
     const parkAcrossY = parkText.top + 42;
     const returnLeftY = dialog.bottom - 42;
@@ -123,4 +126,5 @@
 
   window.addEventListener('load', render);
   window.addEventListener('resize', render);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
 })();

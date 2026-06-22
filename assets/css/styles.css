@@ -107,3 +107,53 @@ h1,h2,h3{margin:0 0 1rem;line-height:.92} h1{font-size:7rem} h2{font-size:5rem} 
 }
 
 .footer{width:100vw;min-height:50vh;background:linear-gradient(90deg,#000 0%,#000 68%,#0a0410 86%,var(--purple) 100%);display:flex;align-items:stretch;color:var(--white);} 
+
+
+/* v19 targeted mobile/content fixes */
+@media (max-width: 700px) {
+  /* Make the six-stop cards content-height based; images remain square. */
+  .program-card {
+    grid-template-columns: min(38vw, 150px) 1fr;
+    height: auto;
+    min-height: min(38vw, 150px);
+    align-items: start;
+  }
+
+  .program-card img {
+    width: min(38vw, 150px);
+    height: min(38vw, 150px);
+  }
+
+  .program-card div {
+    min-width: 0;
+    padding: .55rem .65rem .75rem;
+  }
+
+  .program-card h3 {
+    font-size: clamp(1.35rem, 7vw, 1.75rem);
+    line-height: .95;
+    margin-bottom: .25rem;
+  }
+
+  .program-card p {
+    font-size: .92rem;
+    line-height: 1.28;
+    overflow-wrap: anywhere;
+  }
+
+  /* The final voting section needs more breathing room from the left edge. */
+  #vote .page {
+    padding-left: 86px;
+  }
+}
+
+/* Footer gradient covers the whole footer section. */
+.footer {
+  min-height: 50vh;
+  background: linear-gradient(90deg,#000 0%,#000 68%,#0a0410 86%,var(--purple) 100%);
+  color: var(--white);
+}
+.footer-grid {
+  min-height: 50vh;
+  align-content: start;
+}
